@@ -310,12 +310,6 @@ module tempPrintTile()
 //tile
 module tile()
 {
-    moveUp_hotSwap=4.3;
-    moveLeft_hotSwap=2.5;
-    translate([25.7-sw_frame_b, moveLeft_hotSwap, moveUp_hotSwap])
-    {
-        hotswap();
-    }
     rotate([0, 180, 0])
     {
         difference()
@@ -328,50 +322,63 @@ module tile()
             }
         }
     }
-//DraadKlem Diode
-    // moveUp=draad_dia/2+1;
-    moveUp=(sw_frame_h/2+(draad_klem_hoogte)/2);
-    moveLeft=8.25;
-    //movex=-sw_frame_b/2;
-    movex=-6.17;
-    translate([movex, moveLeft, moveUp])
-    {
-        draadKlem();
-    }
-//DraadKlem kolom
-    // moveUp=draad_dia/2+1;
-    moveUp_DraadKlem=(sw_frame_h/2+(draad_klem_hoogte)/2);
-    movey__DraadKlemKolom=3.3;
-    //movex=-sw_frame_b/2;
-    movex_DraadKlemKolom=sw_frame_l/2-frame_dikte/2;
-    translate([movex_DraadKlemKolom, -movey__DraadKlemKolom, moveUp_DraadKlem])
-    {
-		rotate([0, 0, 90])
+
+	model_addHotSwap = false;
+	if (model_addHotSwap)
+	{
+		//# hotswap house
+		moveUp_hotSwap=4.3;
+		moveLeft_hotSwap=2.5;
+		translate([25.7-sw_frame_b, moveLeft_hotSwap, moveUp_hotSwap])
+		{
+			hotswap();
+		}
+
+		//# DraadKlem Diode
+		// moveUp=draad_dia/2+1;
+		moveUp=(sw_frame_h/2+(draad_klem_hoogte)/2);
+		moveLeft=8.25;
+		//movex=-sw_frame_b/2;
+		movex=-6.17;
+		translate([movex, moveLeft, moveUp])
 		{
 			draadKlem();
 		}
-   }
+		//#DraadKlem kolom
+		// moveUp=draad_dia/2+1;
+		moveUp_DraadKlem=(sw_frame_h/2+(draad_klem_hoogte)/2);
+		movey__DraadKlemKolom=3.3;
+		//movex=-sw_frame_b/2;
+		movex_DraadKlemKolom=sw_frame_l/2-frame_dikte/2;
+		translate([movex_DraadKlemKolom, -movey__DraadKlemKolom, moveUp_DraadKlem])
+		{
+			rotate([0, 0, 90])
+			{
+				draadKlem();
+			}
+		}
+	}
 }
 
 
 //##### Main
 /*
 WIP Macro translate 
-*/
 translate([10,0,0]){rotate([0, 0, 0]){thumbCluster();}}
+*/
 
-//main_easyDactyl();
+main_easyDactyl();
 module main_easyDactyl()
 {
-//    support();
-//    thumbCluster();
+    support();
+	translate([-40, -19, 0]){rotate([0, 0, 0]){thumbCluster();}}
     col_five();
 }
 
 module support()
 {
     // upper connection support
-    translate([ 20, 31, 0])      {rotate([0, 0, -45]){cube([frame_dikte+9, frame_dikte, sw_frame_h], true);}}
+    translate([19, 31, 0])      {rotate([0, 0, -45]){cube([frame_dikte+9, frame_dikte, sw_frame_h], true);}}
     // thumb connection support
     translate([ -43.3, -23, 0])  {rotate([0, 0, -90]){cube([frame_dikte+2, frame_dikte, sw_frame_h], true);}}
 }
@@ -383,8 +390,8 @@ module thumbCluster()
     translate([4.90,20.10,0])   {rotate([0, 0, -thumb_inner_rotation]){tile();}}
     thumb_mid_rotation=10;
     translate([2,0,0]) {rotate([0, 0, -thumb_mid_rotation]){tile();}}
-    thumb_center_rotation=20;
-    translate([ -13.90,-16.30,0])   {rotate([0, 0, -thumb_center_rotation]){tile();}}
+    thumb_center_rotation=15;
+    translate([-4, -19, 0])   {rotate([0, 0, -thumb_center_rotation]){tile();}}
 }
 
 module col_five()
