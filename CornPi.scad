@@ -1,4 +1,117 @@
 /*
+##### Vial
+Copy Vial Firmware vial.uf2 to PR2040
+Config met vial configurator https://vial.rocks/
+
+#### common layout
+Left thumb Ctrl Alt Shift
+Right thumb Enter Space Tab(?)
+lower prio ,./ 
+
+
+#### Special tricks
+double press two keybords e.g. 
+	momentary layer double thumb pres
+	single shot layer double thumb pres
+
+Special keys
+print screen
+Tab	
+Del Left Thumb cluster with Backspace subst ;
+Backspace -> subst ;
+
+### Ctrl
+Ctrl+c
+Ctrl+x
+Ctrl+v
+
+Solution
+tabdance
+momentary layer
+NO Double Thumb one hand on mouse no double press action two keybaords
+
+### Navigation/quick edit
+Del Left Thumb cluster with Backspace subst ;
+Arrows
+Pgup
+PgDn
+home 
+end
+copy 
+cut 
+paste
+Select extend Ctrl+Shift+Arrows
+Select end of line
+
+Solution
+
+
+Windows management
+Move window screen Win+shift+Left-Right Default
+max window Ctrl+Alt+Up AHK
+min window
+close window
+
+#### Ctrl+Alt
+Quick launch
+
+Ctrl+Alt+Q-P 
+
+Solution
+Ctrl-Alt-Shift left -> thunb conbo
+tabdance to stick Ctrl+Al
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##### hardware soldering
+https://scottokeebs.com/blogs/keyboards/scottoergo-handwired-keyboard
+
+	1  "GP0"        40
+	2  "GP1"        39
+	3               38
+	4  "GP2"        37
+	5  "GP3"        36
+	6  "GP4"        35
+	7               34
+	8               33
+	9               32
+	10              31
+	11              30
+	12              29"GP22"
+	13              28
+	14              27"GP21"
+	15              26"GP20"
+	16 "GP12"r      25"GP19"
+	17 "GP13"r      24"GP18"
+	18              23 
+	19 "GP14"r      22
+	20 "GP15"r      21
+
 constFilePath=C:\user\job\data\setting\openscad\easy_dactyl\easyDactyl.scad
 Autohotkey plugin
 strOffset=2
