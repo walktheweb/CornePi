@@ -61,6 +61,28 @@ Solution
 Ctrl-Alt-Shift left -> thunb conbo
 tabdance to stick Ctrl+Al
 
+### Layers
+Order of importance so easy to use
+
+## 1 Fast edit Left thumb
+# right pad
+Arrows 
+Page up down
+_ underscore 
+
+# left pad
+cut a
+copy f
+paste d
+
+
+## 2 Num thumb double tab hold
+
+## 3 Function
+
+## 4 shortcuts launches on shot 
+CTRL ALT #
+
 
 
 
