@@ -3,6 +3,27 @@
 Copy Vial Firmware vial.uf2 to PR2040
 Config met vial configurator https://vial.rocks/
 
+#### Info
+Keys
+https://firefly.3ric.ca/windeddragon/vial-qmk/-/blob/bd702ab6422eaf290b11cfa27337f73c9bdfb232/docs/keycodes_basic.md
+
+setup QMK MSYS
+Compile Vial Joe Scotto
+download alle repos of Joe Scotto
+
+download Vial repo
+start from vial-qmk doen not put full path Keyoards is missing :vial of :default or :scotto directives do not remove default
+Originates for the Joe scotto repos
+Compiling is sloow
+added to config.h inrease numbers of layers, tap and combos
+
+#define DYNAMIC_KEYMAP_LAYER_COUNT 10
+#define VIAL_TAP_DANCE_ENTRIES 60
+#define VIAL_COMBO_ENTRIES 60
+
+[DELFT+j.boldewijn@JUBOL-LT01 vial-qmk]$ make handwired/scottokeebs/scottoergo:vial
+
+
 #### common layout
 Left thumb Ctrl Alt Shift
 Right thumb Enter Space Tab(?)
@@ -64,7 +85,7 @@ tabdance to stick Ctrl+Al
 ### Layers
 Order of importance so easy to use
 
-## 1 Fast edit Left thumb
+## 1 Symbol Fast edit Left thumb
 # right pad
 Arrows 
 Page up down
