@@ -456,10 +456,11 @@ puncture center of of caps
 measure Y and X in 
 Raw grid for https://www.keyboard-layout-editor.com/#/
 
-[{y:0.13,x:5},"R"],
-[{y:-0.5,x:10.25},"U"],
-[{y:-0.88,x:3.75},"E"],
-[{y:-0.87,x:2.5},"W"],
+[{x:5    ,y:0.13 },"R"],
+[{x:10.25,y:-0.5 },"U"],
+[{x:3.75 ,y:-0.88},"E"],
+[{x:2.5  ,y:-0.87},"W"],
+
 [{y:-0.88,x:11.5},"I"],
 [{y:-0.87,x:12.75},"O"],
 [{y:-0.88,x:6.25},"T"],
@@ -493,32 +494,62 @@ Raw grid for https://www.keyboard-layout-editor.com/#/
 
 Should be the basis to continue with QMK Vial Keybord json
 
-*/
 
 //tempPrintTile();
 //vertical travel no gaps check col row cluster space contine y offset
 
-11T = [00.0, -00.0]; 12T = [24.8, -00.0]; 13T = [49.1, -00.0]; 14T = [73.5, -00.0]; 15T = [ 93.5, -00.0];
-21T = [04.9, -20.0]; 22T = [35.5, -20.0]; 23T = [59.0, -20.0]; 24T = [83.7, -20.0]; 25T = [102.7, -20.0];
-31T = [14.1, -40.0]; 32T = [40.6, -40.0]; 33T = [59.9, -40.0]; 34T = [78.5, -40.0]; 35T = [ 97.5, -40.0];
-41T = [24.1, -60.0]; 42T = [45.6, -60.0]; 43T = [63.6, -60.0]; 44T = [84.1, -60.0]; 45T = [104.4, -60.0];
+[{y:0.13,x:5    },"R"],
+[{y:-0.5,x:10.25},"U"],
+[{y:-0.88,x:3.75},"E"],
+[{y:-0.87,x:2.5 },"W"],
 
-11R = 0; 12R = 0; 13R = 0; 14R = 0; 15R = 0;
-21R = 0; 22R = 0; 23R = 0; 24R = 0; 25R = 0;
-31R = 0; 32R = 0; 33R = 0; 34R = 0; 35R = 0;
-41R = 0; 42R = 0; 43R = 0; 44R = 0; 45R = 0;
+[{y:-20.7, x: 0.0},"R"],[{y: -3.9, x:24.5},"R"],[{y:  0.0, x:48.7},"R"],[{y: -1.3, x:75.0},"R"],[{y: -4.0, x: 94.6},"R"],
+[{y:-36.2, x:11.1},"U"],[{y:-22.2, x:31.4},"U"],[{y:-20.0, x:52.5},"U"],[{y:-20.9, x:73.5},"U"],[{y:-23.5, x: 93.1},"U"],
+[{y:-54.0, x:20.1},"E"],[{y:-42.0, x:35.6},"E"],[{y:-39.6, x:55.8},"E"],[{y:-40.7, x:76.9},"E"],[{y:-42.8, x: 95.2},"E"],
+[{y:-60.0, x:30.1},"W"],[{y:-60.0, x:45.6},"W"],[{y:-62.6, x:66.9},"W"],[{y:-65.0, x:87.3},"W"],[{y:-70.1, x:105.9},"W"]
 
+
+*/
+
+
+11T = [00.0, -20.7]; 12T = [24.5, -03.9]; 13T = [48.7, -00.0]; 14T = [75.0, -01.3]; 15T = [ 94.6, -04.0];
+21T = [11.1, -36.2]; 22T = [31.4, -22.2]; 23T = [52.5, -20.0]; 24T = [73.5, -20.9]; 25T = [ 93.1, -23.5];
+31T = [20.1, -54.0]; 32T = [35.6, -42.0]; 33T = [55.8, -39.6]; 34T = [76.9, -40.7]; 35T = [ 95.2, -42.8];
+41T = [30.1, -60.0]; 42T = [45.6, -60.0]; 43T = [66.9, -62.6]; 44T = [87.3, -65.0]; 45T = [105.9, -70.1];
+
+11R = 33; 12R = 16.5; 13R = 08; 14R =  -3; 15R = -5;
+21R = 30; 22R = 17.0; 23R = 10; 24R = 000; 25R = -6;
+31R = 27; 32R = 21.0; 33R = 04; 34R = 000; 35R = -3;
+41R = 00; 42R = 00.0; 43R = -1; 44R = -11; 45R = -9;
+
+/*
+*/
   moveTile(11T, 11R);moveTile(12T, 12R);  moveTile(13T, 13R);moveTile(14T, 14R);moveTile(15T, 15R);
   moveTile(21T, 21R);moveTile(22T, 22R);  moveTile(23T, 23R);moveTile(24T, 24R);moveTile(25T, 25R);
   moveTile(31T, 31R);moveTile(32T, 32R);  moveTile(33T, 33R);moveTile(34T, 34R);moveTile(35T, 35R);
-/*moveTile(41T, 41R);moveTile(42T, 42R);*/moveTile(43T, 43R);moveTile(44T, 44R);moveTile(45T, 45R);
+                                          moveTile(43T, 43R);moveTile(44T, 44R);moveTile(45T, 45R);
+/*moveTile(41T, 41R);moveTile(42T, 42R);*/ 
+
+module switch_shape()
+{
+    cube([sw_l,sw_b, 5 + push_through],true);
+    translate([0, 0, -click_ridge_h])
+    {
+        cube([sw_l+0.3,sw_b,5],true);
+    }
+
+}
 
 module moveTile(Txy, alpha) //move only xy and rotate around z
 {
-      translate([Txy[0], Txy[1], 0]){rotate([0, 0, alpha]){tile();}}
+      translate([Txy[0], Txy[1], 0]){rotate([0, 180, alpha + 90])
+      {
+        //switch_shape();
+        tile();
+      }
+      }
 }
 
-//tile();
 module tempPrintTile()
 {
 	difference()
@@ -532,6 +563,9 @@ module tempPrintTile()
 }
 
 //tile
+/*
+tile();
+*/
 module tile()
 {
     rotate([0, 180, 0])
@@ -539,13 +573,10 @@ module tile()
         difference()
         {
             cube([sw_frame_b,sw_frame_b,sw_frame_h],true);
-            cube([sw_l,sw_b, 5 + push_through],true);
-            translate([0, 0, -click_ridge_h])
-            {
-                cube([sw_l+0.3,sw_b,5],true);
-            }
+            switch_shape();
         }
     }
+
 
 	model_addHotSwap = false;
 	if (model_addHotSwap)
@@ -680,7 +711,7 @@ sw_l = 14.1;
 sw_b = 14.1;
 sw_frame_h = 5; 
 sw_frame_l = kc_l + kc_space;
-sw_frame_b = kc_b + kc_space;
+sw_frame_b = kc_b + kc_space + 3;
 sw_frame_side_thickness = 1.5;
 sw_frame_side_top = 1.5;
 click_ridge_h = 1.4;
