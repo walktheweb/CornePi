@@ -3,27 +3,6 @@
 Copy Vial Firmware vial.uf2 to PR2040
 Config met vial configurator https://vial.rocks/
 
-#### Info
-Keys
-https://firefly.3ric.ca/windeddragon/vial-qmk/-/blob/bd702ab6422eaf290b11cfa27337f73c9bdfb232/docs/keycodes_basic.md
-
-setup QMK MSYS
-Compile Vial Joe Scotto
-download alle repos of Joe Scotto
-
-download Vial repo
-start from vial-qmk doen not put full path Keyoards is missing :vial of :default or :scotto directives do not remove default
-Originates for the Joe scotto repos
-Compiling is sloow
-added to config.h inrease numbers of layers, tap and combos
-
-#define DYNAMIC_KEYMAP_LAYER_COUNT 10
-#define VIAL_TAP_DANCE_ENTRIES 60
-#define VIAL_COMBO_ENTRIES 60
-
-[DELFT+j.boldewijn@JUBOL-LT01 vial-qmk]$ make handwired/scottokeebs/scottoergo:vial
-
-
 #### common layout
 Left thumb Ctrl Alt Shift
 Right thumb Enter Space Tab(?)
@@ -85,7 +64,7 @@ tabdance to stick Ctrl+Al
 ### Layers
 Order of importance so easy to use
 
-## 1 Symbol Fast edit Left thumb
+## 1 Fast edit Left thumb
 # right pad
 Arrows 
 Page up down
@@ -511,25 +490,31 @@ Should be the basis to continue with QMK Vial Keybord json
 
 */
 
+Stagger=6.35;
+CenterToCenter=19.05;
+11T = [CenterToCenter*0+Stagger*0,  CenterToCenter*0]; 12T = [CenterToCenter*1+Stagger*0,  CenterToCenter*0]; 13T = [CenterToCenter*2+Stagger*0,  CenterToCenter*0]; 14T = [CenterToCenter*3+Stagger*0,  CenterToCenter*0]; 15T = [CenterToCenter*4+Stagger*0,  CenterToCenter*0];
+21T = [CenterToCenter*0+Stagger*1, -CenterToCenter*1]; 22T = [CenterToCenter*1+Stagger*1, -CenterToCenter*1]; 23T = [CenterToCenter*2+Stagger*1, -CenterToCenter*1]; 24T = [CenterToCenter*3+Stagger*1, -CenterToCenter*1]; 25T = [CenterToCenter*4+Stagger*1, -CenterToCenter*1];
+31T = [CenterToCenter*0+Stagger*2, -CenterToCenter*2]; 32T = [CenterToCenter*1+Stagger*2, -CenterToCenter*2]; 33T = [CenterToCenter*2+Stagger*2, -CenterToCenter*2]; 34T = [CenterToCenter*3+Stagger*2, -CenterToCenter*2]; 35T = [CenterToCenter*4+Stagger*2, -CenterToCenter*2];
+41T = [CenterToCenter*0+Stagger*3, -CenterToCenter*3]; 42T = [CenterToCenter*1+Stagger*3, -CenterToCenter*3]; 43T = [CenterToCenter*2+Stagger*3, -CenterToCenter*3]; 44T = [CenterToCenter*3+Stagger*3, -CenterToCenter*3]; 45T = [CenterToCenter*4+Stagger*3, -CenterToCenter*3];
 
-11T = [00.0, -20.7]; 12T = [24.5, -03.9]; 13T = [48.7, -00.0]; 14T = [75.0, -01.3]; 15T = [ 94.6, -04.0];
-21T = [11.1, -36.2]; 22T = [31.4, -22.2]; 23T = [52.5, -20.0]; 24T = [73.5, -20.9]; 25T = [ 93.1, -23.5];
-31T = [20.1, -54.0]; 32T = [35.6, -42.0]; 33T = [55.8, -39.6]; 34T = [76.9, -40.7]; 35T = [ 95.2, -42.8];
-41T = [30.1, -60.0]; 42T = [45.6, -60.0]; 43T = [66.9, -62.6]; 44T = [87.3, -65.0]; 45T = [105.9, -70.1];
-
-11R = 33; 12R = 16.5; 13R = 08; 14R =  -3; 15R = -5;
-21R = 30; 22R = 17.0; 23R = 10; 24R = 000; 25R = -6;
-31R = 27; 32R = 21.0; 33R = 04; 34R = 000; 35R = -3;
-41R = 00; 42R = 00.0; 43R = -1; 44R = -11; 45R = -9;
+11R = 00; 12R = 00; 13R = 00; 14R = 00; 15R = 00;
+21R = 00; 22R = 00; 23R = 00; 24R = 00; 25R = 00;
+31R = 00; 32R = 00; 33R = 00; 34R = 00; 35R = 00;
+41R = 00; 42R = 00; 43R = 00; 44R = 00; 45R = 00;
 
 /*
 */
-  moveTile(11T, 11R);moveTile(12T, 12R);  moveTile(13T, 13R);moveTile(14T, 14R);moveTile(15T, 15R);
-  moveTile(21T, 21R);moveTile(22T, 22R);  moveTile(23T, 23R);moveTile(24T, 24R);moveTile(25T, 25R);
-  moveTile(31T, 31R);moveTile(32T, 32R);  moveTile(33T, 33R);moveTile(34T, 34R);moveTile(35T, 35R);
-                                          moveTile(43T, 43R);moveTile(44T, 44R);moveTile(45T, 45R);
-/*moveTile(41T, 41R);moveTile(42T, 42R);*/ 
+translate([0,0,sw_frame_h/2])
+{
+    rotate([0, 180, 0])
+    {
+    moveTile(11T, 11R);moveTile(12T, 12R);  moveTile(13T, 13R);moveTile(14T, 14R);moveTile(15T, 15R);
+    moveTile(21T, 21R);moveTile(22T, 22R);  moveTile(23T, 23R);moveTile(24T, 24R);moveTile(25T, 25R);
+    moveTile(31T, 31R);moveTile(32T, 32R);  moveTile(33T, 33R);moveTile(34T, 34R);moveTile(35T, 35R);
+    moveTile(41T, 41R);moveTile(42T, 42R);  moveTile(43T, 43R);moveTile(44T, 44R);moveTile(45T, 45R); 
+    }
 
+}  
 module switch_shape()
 {
     cube([sw_l,sw_b, 5 + push_through],true);
